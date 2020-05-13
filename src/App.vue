@@ -16,7 +16,7 @@
 
 <script>
 import Nav from'./components/nav';
-// import { mapActions } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
     name: 'App',
@@ -24,12 +24,10 @@ export default {
         Nav
     },
     created() {
-        this.$store.dispatch('init/dataload');
+        this.dataload();
     },
     methods: {
-        // mapActions('init',[
-        //     'dataload'
-        // ])
+        ...mapActions({dataload : 'init/dataLoad'})
     }
 }
 </script>

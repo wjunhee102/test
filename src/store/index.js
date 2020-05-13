@@ -27,7 +27,7 @@ const init = {
             } catch (error){
                 console.log(error)
             } finally {
-                console.log(state)
+                console.log(state);
                 const local = JSON.stringify(state);
                 localStorage.setItem("item", local);
             }
@@ -35,10 +35,8 @@ const init = {
         }
     },
     actions: {
-        dataLoad : function(context, payload) {
-            if(payload) {
+        dataLoad : function(context) {
                 context.commit(ITEMLOAD);
-            } 
             return 
         }
     }
