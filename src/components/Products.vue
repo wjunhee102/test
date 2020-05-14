@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="g-fl">
         <template v-for="item in getItem">
             <div v-bind:key="item.id">
                 <router-link :to="`/products/detail/${item.id}`">

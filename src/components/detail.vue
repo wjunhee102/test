@@ -20,7 +20,6 @@ export default {
     methods: {
         ...mapActions('cart',['listAction']),
         addList(id) {
-            console.log(this.detailItem(id))
             this.listAction({
                 type : "ADDLIST",
                 data : this.detailItem(id)
