@@ -1,13 +1,17 @@
 <template>
     <div id="app">
-        <div class="wrap">
-            <div class="header">
+        <div class="wrap max-w-screen-xl min-height" >
+            <div class="header w-full h-20">
                 <h1 class="logo">감성 Store</h1>
             </div>
             <div class="main">
-                <Nav />
-                <div class="container g-w g-h">
-                    <router-view></router-view>
+								<div class="nav_default min-height">
+									<Nav />
+								</div>
+                <div class="container .min-height">
+									<transition name="view">
+										<router-view />
+									</transition>
                 </div>
             </div>
         </div>
@@ -29,93 +33,57 @@ export default {
 </script>
 
 <style>
-	.main-bg {
-		background-color: #FF8E8B;
-	}
-	.m-radi {
-		border-radius: 16px;
-	}
-	.z-5 {
-		z-index: 5;
-	}
-	body {
-		/* background-color: #FFA6A3; */
-	}
-	#app {
-		width: 100%;
-		height: 100%;
-		background-color: #fff;
-	}
-	a {
-		text-decoration: none;
-		color: #000;
-	}
-	.f-w {
-		color: #fff;
-	}
-	.wrap {
-		width: 1000px;
-		margin: 0 auto;
-		position: relative;
-	}
-	.header {
-		text-align: center;
-		line-height: 50px;
-	}
-	.main {
-		width: 800px;
-		display: flex;
-		justify-content: space-between;
-	}
-	.nav {
-		position: fixed;
-		left: 50%;
-		top: 50%;
-		transform: translate(-400px ,-50%);
-		justify-content: center;
-		width: 160px;
-		height: 600px;
-		box-sizing: border-box;
-		background-color: #fff;
-		overflow: hidden;
-	}
-	.after::after {
-		content: "";
-		display: block;
-		position: absolute;
-	}
-	.nav::after {
-		width: 600px;
-		height: 600px;
-		left: calc(50% - 300px);
-		top: 400px;
-		border-radius: 50%;
-		background-color: #FF8E8B;
-		z-index: 1;
-	}
-	.container {
-		padding-left: 200px;
-	}
-	.nav a {
-		display: block;
-		width: 100%;
-		height: 40px;
-		line-height: 40px;
-		text-align: center;
-	}
-	.g-sh {
-		box-shadow: 2px 2px 7px 1px rgba(255, 142, 139, 0.2);
-	}
-	.g-w {
-		width: 600px; 
-	}
-	.g-fl, .nav {
-		display: flex;
-		align-items: center;
-		flex-wrap: wrap;
-	}
-	.g-fl {
-		justify-content: space-between;
-	}
+/** 프레임 **/
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.wrap {
+	margin:0 auto;
+	font-size: 16px;
+}
+.min-height {
+	min-height: 900px;
+}                                               
+div {
+	/* border: 1px solid #000; */
+}
+
+/** 메인 **/
+.main {
+	display: flex;
+	position: relative;
+}
+
+/** 네비 **/
+.nav {
+	width: 170px;
+	height: 100%;
+	margin-right: 10px;
+}
+/** 컨테이너 **/
+.container {
+	overflow-y: scroll;
+}
+.router-link-active {
+	background-color: #fc8181;
+	color: #fff;
+}
+.router-link-active span {
+	color: #fff;
+}
+.view-enter-active, .view-leave-active {
+	transition: opacity 0.3s;
+}
+.view-leave-active {
+	position: absolute;
+}
+.view-enter, .view-leave-to {
+	opacity: 0;
+}
+
+
 
 </style>

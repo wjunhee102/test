@@ -1,23 +1,29 @@
 <template>
-    <div class="nav g-sh m-radi after">
-        <div class="cart-window">
+    <div class="nav nav_default shadow-lg">
+        <div class="">
             <template v-for="item in getItem">
-                <div v-bind:key="item.id" class="g-fl">
+                <div v-bind:key="item.id" class="flex flex-wrap">
                     <p>{{item.name}}</p> 
 										<button type="button" @click="removeList(item.id)">제거</button>
                 </div>
             </template>
         </div>
-        <div class="price">{{getPrice}}</div>
-        <div class="z-5">
-          <router-link to="/cart">
-            <span>장바구니</span>
+        <div class="">{{getPrice}}</div>
+        <div class="">
+          <router-link to="/cart" >
+            <span class="bg-transparent hover:bg-red-400 text-red-400 font-semibold hover:text-white py-1 px-1 border border-red-400 hover:border-transparent rounded">
+							장바구니
+						</span>
 					</router-link>
 					<router-link to="/" exact>
-						<span>메인</span>
+						<span class="bg-transparent hover:bg-red-400 text-red-400 font-semibold hover:text-white py-1 px-1 border border-red-400 hover:border-transparent rounded">
+							메인
+						</span>
 					</router-link>
 					<router-link to="/products" exact>
-						<span class="f-w">상품목록</span>
+						<span class="bg-transparent hover:bg-red-400 text-red-400 font-semibold hover:text-white py-1 px-1 border border-red-400 hover:border-transparent rounded">
+							상품목록
+						</span>
 					</router-link>
         </div>
     </div>
@@ -29,7 +35,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
     name: 'Nav',
     computed : {
-        ...mapGetters('cart',['getItem', 'getPrice'])
+      ...mapGetters('cart',['getItem', 'getPrice'])
     },
     methods : {
         ...mapActions('cart',['listAction']),
@@ -44,15 +50,6 @@ export default {
 </script>
 
 <style>
-.cart-window {
-    width: 100%;
-    height: 40%;
-    overflow-y: scroll;
-    position: relative;
-    z-index: 10;
-}
-.price {
-    text-align: center;
-}
+
 
 </style>

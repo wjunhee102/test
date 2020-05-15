@@ -1,5 +1,6 @@
 <template>
   <div>
+      <img src="https://placeimg.com/200/100/animals/sepia" />
       <h2>{{detailItem(id).name}}</h2>
       <h4>{{detailItem(id).price}}</h4>
       <h4>{{detailItem(id).detail}}</h4>
