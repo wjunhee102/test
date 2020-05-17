@@ -38,9 +38,9 @@ const init = {
     actions: {
         dataLoad : async function(context) {
                 try {
-                    const  data = await item
+                    const data = await item
                     context.commit(ITEMLOAD, data);
-                    console.log(data)
+                    console.log(data);
                 } catch (error){
                     console.log(error);
                 } finally {

@@ -11,7 +11,9 @@
               <h6>{{item.price}}원</h6>
             </div>
         </router-link>
-        <button @click="addList(item.id)">장바구니에 넣기</button>
+        <button 
+          class="hover:bg-red-400 text-red-400 font-semibold hover:text-white text-center w-full"
+          @click="addList(item.id)">장바구니에 넣기</button>
       </div>
     </template>
   </div>
