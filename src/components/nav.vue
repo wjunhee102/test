@@ -1,8 +1,8 @@
 <template>
     <div class="nav nav_default shadow-lg">
-        <div class="">
+        <div class="h-56">
             <template v-for="item in getItem">
-                <div v-bind:key="item.id" class="flex flex-wrap">
+                <div @mousedown="moveBtn" @mouseup="stopBtn" ref="aaa" v-bind:key="item.id" class="cursor-pointer border-red-400 flex flex-wrap bg-transparent hover:bg-red-400 text-red-400 font-semibold hover:text-white py-1 px-1 border border-red-400 hover:border-transparent rounded">
                     <p>{{item.name}}</p> 
 										<button type="button" @click="removeList(item.id)">제거</button>
                 </div>
@@ -33,19 +33,52 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-    name: 'Nav',
+		name: 'Nav',
+		data(){
+			return { 
+				x : 0,
+				y : 0,
+				yy : false
+			}
+		},
+		created() {
+			// window.addEventListener("mousemove",this.moveEle);
+			// this.moveA();
+		},
     computed : {
       ...mapGetters('cart',['getItem', 'getPrice'])
-    },
+		},
+		beforeDestroy(){
+			window.removeEventListener("mousemove", this.moveEle)
+		},
     methods : {
         ...mapActions('cart',['listAction']),
         removeList(idx) {
             this.listAction({
                 type : "REMOVELIST",
                 data : this.getItem.filter(ele => ele.id === idx)[0]
-                })
-            }
-    }
+            })
+				},
+				moveBtn() {
+					this.yy = true
+					// this.$refs.aaa[0].clientWidth = 400;
+					window.addEventListener("mousemove", this.moveEle);
+				},
+				stopBtn() {
+					this.yy = false
+					window.removeEventListener("mousemove", this.moveEle);
+				},
+				moveEle(e) {
+					// if(this.yy) {
+						this.x = e.clientX;
+						this.y = e.clientY;
+						this.$refs.aaa[0].style.transform = `translate(${e.clientX}px, ${e.clientY}px)`
+					// }
+				},
+				moveA() {
+					this.$refs.aaa[0].style.transform = `translate(${this.x}px, ${this.y}px)`
+				}
+		}
 }
 </script>
 

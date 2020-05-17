@@ -47,9 +47,7 @@ body {
 .min-height {
 	min-height: 900px;
 }                                               
-div {
-	/* border: 1px solid #000; */
-}
+
 
 /** 메인 **/
 .main {
