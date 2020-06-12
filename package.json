@@ -41,5 +41,14 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "repository": "git+https://github.com/wjunhee102/test.git",
+  "author": "junhee <wjunhee102@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wjunhee102/test/issues"
+  },
+  "homepage": "https://github.com/wjunhee102/test#readme"
 }
